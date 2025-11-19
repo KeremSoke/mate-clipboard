@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.mate.clipman" path="/org/mate/clipman/">
+    <key name="history-size" type="i">
+      <default>50</default>
+      <summary>Number of items to keep in history</summary>
+      <description>Maximum number of clipboard items to store in history (1-500)</description>
+    </key>
+    <key name="use-primary-selection" type="b">
+      <default>false</default>
+      <summary>Track primary selection</summary>
+      <description>Also track the primary (mouse) selection in addition to the clipboard</description>
+    </key>
+    <key name="sync-selections" type="b">
+      <default>false</default>
+      <summary>Synchronize selections</summary>
+      <description>Keep clipboard and primary selection synchronized</description>
+    </key>
+    <key name="save-images" type="b">
+      <default>true</default>
+      <summary>Save images to history</summary>
+      <description>Save copied images to clipboard history</description>
+    </key>
+    <key name="save-files" type="b">
+      <default>true</default>
+      <summary>Save file paths to history</summary>
+      <description>Save copied file paths to clipboard history</description>
+    </key>
+    <key name="keep-content" type="b">
+      <default>true</default>
+      <summary>Keep clipboard content</summary>
+      <description>Restore clipboard content when the source application closes</description>
+    </key>
+    <key name="show-preview" type="b">
+      <default>true</default>
+      <summary>Show image previews</summary>
+      <description>Show thumbnail previews for images in the history</description>
+    </key>
+    <key name="confirm-clear" type="b">
+      <default>true</default>
+      <summary>Confirm before clearing</summary>
+      <description>Ask for confirmation before clearing the entire history</description>
+    </key>
+    <key name="paste-on-select" type="b">
+      <default>false</default>
+      <summary>Paste on selection</summary>
+      <description>Automatically paste when selecting an item from history</description>
+    </key>
+    <key name="exclude-pattern" type="s">
+      <default>""</default>
+      <summary>Exclude pattern</summary>
+      <description>Regular expression pattern for text to exclude from history</description>
+    </key>
+  </schema>
+</schemalist>

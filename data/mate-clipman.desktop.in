@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=MATE Clipboard Manager
+Comment=Clipboard history manager for MATE
+Exec=@bindir@/mate-clipman
+Icon=edit-paste
+Terminal=false
+Type=Application
+Categories=GTK;MATE;Utility;
+Keywords=clipboard;paste;copy;history;
+StartupNotify=true

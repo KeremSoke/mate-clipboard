@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.mate.panel.applet.ClipmanAppletFactory
+Exec=@LIBDIR@/mate-panel/libmate-clipman-applet.so

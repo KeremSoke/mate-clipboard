@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=MATE Clipboard Manager
+Comment=Start clipboard manager on login
+Exec=@bindir@/mate-clipman --hidden
+Icon=edit-paste
+Terminal=false
+Type=Application
+Categories=GTK;MATE;Utility;
+X-MATE-Autostart-enabled=true
+NoDisplay=true

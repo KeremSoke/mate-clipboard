@@ -1,0 +1,10 @@
+[Applet Factory]
+Id=ClipmanAppletFactory
+Location=@LIBDIR@/mate-panel/libmate-clipman-applet.so
+Name=Clipman Applet Factory
+Description=Factory for the clipboard manager applet
+
+[ClipmanApplet]
+Name=Clipboard Manager
+Description=View and manage clipboard history
+Icon=edit-paste
