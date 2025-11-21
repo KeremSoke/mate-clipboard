@@ -1,0 +1,241 @@
+#  mate-clipman.pot
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mate-clipman\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-19 14:03-0800\n"
+"PO-Revision-Date: 2025-11-21 15:50+0100\n"
+"Last-Translator: Quentin PAGÈS\n"
+"Language-Team: \n"
+"Language: oc\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+
+#: src/clipman-app.c:102 src/clipman-applet.c:98
+msgid "Clear all clipboard history?"
+msgstr "Escafar tot l’istoric del quichapapièrs ?"
+
+#: src/clipman-app.c:105 src/clipman-applet.c:101
+msgid "This action cannot be undone."
+msgstr "Impossible d'anullar aquesta accion."
+
+#: src/clipman-app.c:203 src/clipman-app.c:263 src/clipman-applet.c:150
+#: data/mate-clipman.desktop.in:2 data/mate-clipman-autostart.desktop.in:2
+msgid "MATE Clipboard Manager"
+msgstr "Gestionari de quichapapièrs per MATE"
+
+#: src/clipman-app.c:205 src/clipman-applet.c:152
+msgid "A clipboard history manager for MATE Desktop"
+msgstr "Gestionari de quichapapièrs per l’environament de burèu MATE"
+
+#: src/clipman-app.c:228
+msgid "Show History"
+msgstr "Mostrar l’istoric"
+
+#: src/clipman-app.c:236
+msgid "Clear History"
+msgstr "Escafar l’istoric"
+
+#: src/clipman-app.c:241
+msgid "Preferences"
+msgstr "Preferéncias"
+
+#: src/clipman-app.c:246
+msgid "About"
+msgstr "A prepaus"
+
+#: src/clipman-app.c:254
+msgid "Quit"
+msgstr "Quitar"
+
+#: src/clipman-app.c:399
+msgid "Start hidden in system tray"
+msgstr "Aviar rescondut dins la barra de prètzfach"
+
+#: src/clipman-applet.c:161
+msgid "_Preferences"
+msgstr "_Preferéncias"
+
+#: src/clipman-applet.c:163
+msgid "_Clear History"
+msgstr "_Escafar l’istoric"
+
+#: src/clipman-applet.c:165
+msgid "_About"
+msgstr "_A prepaus"
+
+#: src/clipman-applet.c:219 src/clipman-history.c:263
+msgid "Clipboard History"
+msgstr "Istoric del quichapapièrs"
+
+#: src/clipman-history.c:140
+msgid "Delete this item"
+msgstr "Suprimir aqueste element"
+
+#: src/clipman-history.c:285
+msgid "Search history..."
+msgstr "Recercar dins l'istoric..."
+
+#: src/clipman-history.c:290
+msgid "Clear all history"
+msgstr "Escafar tot l’istoric"
+
+#. Empty state
+#: src/clipman-history.c:312
+msgid "No clipboard history"
+msgstr "Cap d’istoric del quichapapièrs"
+
+#: src/clipman-item.c:216
+#, c-format
+msgid "[Image %dx%d]"
+msgstr "[Imatge %dx%d]"
+
+#: src/clipman-item.c:251
+#, c-format
+msgid "[File: %s]"
+msgstr "[Fichièr : %s]"
+
+#: src/clipman-item.c:254
+#, c-format
+msgid "[%u files]"
+msgstr "[%u fichièrs]"
+
+#: src/clipman-preferences.c:81
+msgid "Clipboard Manager Preferences"
+msgstr "Preferéncias del gestionari de quichapapièrs"
+
+#: src/clipman-preferences.c:85
+msgid "_Close"
+msgstr "_Tampar"
+
+#. General section
+#: src/clipman-preferences.c:94
+msgid "General"
+msgstr "General"
+
+#: src/clipman-preferences.c:101
+msgid "History size:"
+msgstr "Talha de l'istoric :"
+
+#: src/clipman-preferences.c:107
+msgid "Maximum number of items to keep in history"
+msgstr "Nombre maximal d’elements a gardar dins l’istoric"
+
+#: src/clipman-preferences.c:111
+msgid "Keep clipboard content when source closes"
+msgstr "Gardar lo contengut del quichapapièrs quand se tampa la sorsa"
+
+#: src/clipman-preferences.c:113
+msgid "Restore clipboard content when the application that copied it closes"
+msgstr "Restaurar lo contengut del quichapapièrs quand l’aplicacion que l’a pegat tampa"
+
+#: src/clipman-preferences.c:117
+msgid "Confirm before clearing history"
+msgstr "Confirmacion abans netejatge de l’istoric"
+
+#: src/clipman-preferences.c:121
+msgid "Automatically paste when selecting from history"
+msgstr "Pegar automaticament en seleccionant a partir de l’istoric"
+
+#. Clipboard section
+#: src/clipman-preferences.c:125
+msgid "Clipboard Sources"
+msgstr "Fonts del quichapapièrs"
+
+#: src/clipman-preferences.c:128
+msgid "Track primary selection (middle-click paste)"
+msgstr "Susvelhar la seleccion primària (empegament clic del mitan)"
+
+#: src/clipman-preferences.c:130
+msgid "Also save text selected with the mouse"
+msgstr "Enregistrar tanben lo tèxte seleccionat amb la mirga"
+
+#: src/clipman-preferences.c:134
+msgid "Synchronize clipboard and primary selection"
+msgstr "Sincronizar lo quichapapièrs e la seleccion primària"
+
+#: src/clipman-preferences.c:136
+msgid "Keep both selections synchronized"
+msgstr "Gardar las doas seleccions sincronizadas"
+
+#. Content types section
+#: src/clipman-preferences.c:140
+msgid "Content Types"
+msgstr "Tipes de contengut"
+
+#: src/clipman-preferences.c:143
+msgid "Save images to history"
+msgstr "Salvar los imatges dins l’istoric"
+
+#: src/clipman-preferences.c:147
+msgid "Save file paths to history"
+msgstr "Salvar lo camin dels fichièrs dins l’istoric"
+
+#: src/clipman-preferences.c:151
+msgid "Show image previews in history"
+msgstr "Afichar l’apercebut dels imatges dins l’istoric"
+
+#. Filter section
+#: src/clipman-preferences.c:155
+msgid "Filtering"
+msgstr "Filtratge"
+
+#: src/clipman-preferences.c:158
+msgid "Exclude pattern:"
+msgstr "Motiu d’exclure :"
+
+#: src/clipman-preferences.c:163
+msgid "Regular expression"
+msgstr "Expression racionala"
+
+#: src/clipman-preferences.c:165
+msgid "Text matching this pattern will not be saved (e.g., passwords)"
+msgstr "Lo tèxte que correspond a aqueste motiu serà pas enregistrat (per exemple, los senhals)"
+
+#: data/mate-clipman.desktop.in:3
+msgid "Clipboard history manager for MATE"
+msgstr "Gestionari d’istoric de quichapapièrs per MATE"
+
+#: data/mate-clipman.desktop.in:9
+msgid "clipboard;paste;copy;history;"
+msgstr "quichapapièr;pegar;copiar;empegar;istoric;"
+
+#: data/mate-clipman-autostart.desktop.in:3
+msgid "Start clipboard manager on login"
+msgstr "Lançar lo gestionari de quichapapièrs a la connexion"
+
+#: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:5
+msgid "Clipman Applet Factory"
+msgstr "Fabrica d’ajuston Clipman"
+
+#: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:6
+msgid "Factory for the clipboard manager applet"
+msgstr "Fabrica per l’ajuston del gestionari de quichapapièrs"
+
+#: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:9
+msgid "Clipboard Manager"
+msgstr "Gestionari de quichapapièrs"
+
+#: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:10
+msgid "View and manage clipboard history"
+msgstr "Veire e gerir l’istoric del quichapapièrs"
