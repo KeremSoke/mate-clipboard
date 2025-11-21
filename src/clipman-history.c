@@ -27,6 +27,10 @@
 #include "clipman.h"
 #include "config.h"
 
+#ifdef GDK_WINDOWING_X11
+#  include <gdk/gdkx.h>
+#endif
+
 struct _ClipmanHistory
 {
   GtkWindow parent;
@@ -292,6 +296,43 @@ on_focus_out (GtkWidget *widget, GdkEventFocus *event, gpointer user_data)
   return FALSE;
 }
 
+static gboolean
+clipman_history_get_pointer_position (ClipmanHistory *self, gint *x, gint *y)
+{
+  GdkDisplay *display = gtk_widget_get_display (GTK_WIDGET (self));
+
+#ifdef GDK_WINDOWING_X11
+  if (GDK_IS_X11_DISPLAY (display))
+    {
+      Display *xdisplay = gdk_x11_display_get_xdisplay (display);
+      Window root = DefaultRootWindow (xdisplay);
+      Window child;
+      gint root_x, root_y;
+      gint win_x, win_y;
+      guint mask;
+
+      if (XQueryPointer (xdisplay, root, &root, &child, &root_x, &root_y,
+                         &win_x, &win_y, &mask))
+        {
+          *x = root_x;
+          *y = root_y;
+          return TRUE;
+        }
+    }
+#endif
+
+  GdkSeat *seat = gdk_display_get_default_seat (display);
+  if (!seat)
+    return FALSE;
+
+  GdkDevice *pointer = gdk_seat_get_pointer (seat);
+  if (!pointer)
+    return FALSE;
+
+  gdk_device_get_position (pointer, NULL, x, y);
+  return TRUE;
+}
+
 static void
 clipman_history_init (ClipmanHistory *self)
 {
@@ -392,9 +433,8 @@ void
 clipman_history_show_popup (ClipmanHistory *self)
 {
   GdkDisplay *display;
-  GdkSeat *seat;
-  GdkDevice *pointer;
-  gint x, y;
+  gint x = 0;
+  gint y = 0;
 
   g_return_if_fail (CLIPMAN_IS_HISTORY (self));
 
@@ -402,10 +442,11 @@ clipman_history_show_popup (ClipmanHistory *self)
   clipman_history_refresh (self);
 
   /* Position near mouse cursor */
-  display = gdk_display_get_default ();
-  seat = gdk_display_get_default_seat (display);
-  pointer = gdk_seat_get_pointer (seat);
-  gdk_device_get_position (pointer, NULL, &x, &y);
+  display = gtk_widget_get_display (GTK_WIDGET (self));
+  if (!clipman_history_get_pointer_position (self, &x, &y))
+    {
+      gtk_window_get_position (GTK_WINDOW (self), &x, &y);
+    }
 
   /* Adjust position to keep on screen */
   GdkMonitor *monitor = gdk_display_get_monitor_at_point (display, x, y);
@@ -423,6 +464,13 @@ clipman_history_show_popup (ClipmanHistory *self)
   gtk_window_move (GTK_WINDOW (self), x, y);
   gtk_widget_show (GTK_WIDGET (self));
   gtk_window_present (GTK_WINDOW (self));
+
+  /* Some window managers remember the last position for already mapped
+   * override-redirect windows.  Force another move after the window is
+   * shown so we mimic the first-show behaviour where the WM places the
+   * popup near the current pointer location.  This keeps the popup tied to
+   * the cursor every time it is opened. */
+  gtk_window_move (GTK_WINDOW (self), x, y);
 
   /* Focus search entry */
   gtk_widget_grab_focus (self->search_entry);
