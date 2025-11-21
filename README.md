@@ -22,7 +22,7 @@ Install the required development packages:
 
 ```bash
 # Debian
-sudo apt install meson ninja-build gcc \
+sudo apt install meson ninja-build gcc gettext\
     libglib2.0-dev libgtk-3-dev libx11-dev libsqlite3-dev \
     libmate-panel-applet-dev
 ```
@@ -44,8 +44,8 @@ meson compile -C builddir
 Install the GSettings schema system-wide so the app works without environment variables:
 
 ```bash
-# Install (optional)
-sudo meson install -C builddir
+# Install 
+sudo meson instal -C builddir
 
 # Copy schema to system location
 sudo cp data/org.mate.clipman.gschema.xml /usr/share/glib-2.0/schemas/
