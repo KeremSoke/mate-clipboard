@@ -45,7 +45,7 @@ Install the GSettings schema system-wide so the app works without environment va
 
 ```bash
 # Install 
-sudo meson instal -C builddir
+sudo meson install -C builddir
 
 # Copy schema to system location
 sudo cp data/org.mate.clipman.gschema.xml /usr/share/glib-2.0/schemas/

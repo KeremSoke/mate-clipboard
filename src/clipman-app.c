@@ -227,12 +227,12 @@ on_menu_clear_history (GtkMenuItem *item, gpointer user_data)
 static void
 on_menu_about (GtkMenuItem *item, gpointer user_data)
 {
-  const gchar *authors[] = { "MATE Clipboard Manager Authors", NULL };
+  const gchar *authors[] = { "Kerem Soke", NULL };
 
   gtk_show_about_dialog (NULL, "program-name", _ ("MATE Clipboard Manager"),
                          "version", PACKAGE_VERSION, "comments",
                          _ ("A clipboard history manager for MATE Desktop"),
-                         "copyright", "Copyright \xc2\xa9 2024",
+                         "copyright", "Copyright \xc2\xa9 2025",
                          "license-type", GTK_LICENSE_GPL_3_0, "authors",
                          authors, "logo-icon-name", "edit-paste", NULL);
 }
