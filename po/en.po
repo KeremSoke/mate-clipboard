@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mate-clipman\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 14:03-0800\n"
+"POT-Creation-Date: 2026-10-24 01:10-0700\n"
 "PO-Revision-Date: 2025-11-19 14:03-0800\n"
 "Last-Translator: Kerem Söke\n"
 "Language-Team: \n"
@@ -32,211 +32,271 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/clipman-app.c:102 src/clipman-applet.c:98
-msgid "Clear all clipboard history?"
-msgstr "Clear all clipboard history?"
-
-#: src/clipman-app.c:105 src/clipman-applet.c:101
-msgid "This action cannot be undone."
-msgstr "This action cannot be undone."
-
-#: src/clipman-app.c:203 src/clipman-app.c:263 src/clipman-applet.c:150
-#: data/mate-clipman.desktop.in:2 data/mate-clipman-autostart.desktop.in:2
-msgid "MATE Clipboard Manager"
-msgstr "MATE Clipboard Manager"
-
-#: src/clipman-app.c:205 src/clipman-applet.c:152
-msgid "A clipboard history manager for MATE Desktop"
-msgstr "A clipboard history manager for MATE Desktop"
-
-#: src/clipman-app.c:228
-msgid "Show History"
-msgstr "Show History"
-
-#: src/clipman-app.c:236
-msgid "Clear History"
-msgstr "Clear History"
-
-#: src/clipman-app.c:241
-msgid "Preferences"
-msgstr "Preferences"
-
-#: src/clipman-app.c:246
-msgid "About"
-msgstr "About"
-
-#: src/clipman-app.c:254
-msgid "Quit"
-msgstr "Quit"
-
-#: src/clipman-app.c:399
-msgid "Start hidden in system tray"
-msgstr "Start hidden in system tray"
-
-#: src/clipman-applet.c:161
-msgid "_Preferences"
-msgstr "_Preferences"
-
-#: src/clipman-applet.c:163
-msgid "_Clear History"
-msgstr "_Clear History"
-
-#: src/clipman-applet.c:165
-msgid "_About"
-msgstr "_About"
-
-#: src/clipman-applet.c:219 src/clipman-history.c:263
+#: src/applet.vala:53 src/history-popup.vala:70
 msgid "Clipboard History"
 msgstr "Clipboard History"
 
-#: src/clipman-history.c:140
-msgid "Delete this item"
-msgstr "Delete this item"
+#: src/applet.vala:61
+msgid "_Preferences"
+msgstr "_Preferences"
 
-#: src/clipman-history.c:285
-msgid "Search history..."
-msgstr "Search history..."
+#: src/applet.vala:63
+msgid "_Clear History"
+msgstr "_Clear History"
 
-#: src/clipman-history.c:290
-msgid "Clear all history"
-msgstr "Clear all history"
+#: src/applet.vala:65
+msgid "_About"
+msgstr "_About"
 
-#. Empty state
-#: src/clipman-history.c:312
-msgid "No clipboard history"
-msgstr "No clipboard history"
+#: src/applet.vala:98
+msgid "MATE Clipboard Manager"
+msgstr "MATE Clipboard Manager"
 
-#: src/clipman-item.c:216
+#: src/applet.vala:100
+msgid "A clipboard history manager for MATE Desktop"
+msgstr "A clipboard history manager for MATE Desktop"
+
+#: src/entry.vala:112
 #, c-format
 msgid "[Image %dx%d]"
 msgstr "[Image %dx%d]"
 
-#: src/clipman-item.c:251
+#: src/entry.vala:117
 #, c-format
 msgid "[File: %s]"
 msgstr "[File: %s]"
 
-#: src/clipman-item.c:254
+#: src/entry.vala:119
 #, c-format
 msgid "[%u files]"
 msgstr "[%u files]"
 
-#: src/clipman-preferences.c:81
+#: src/history-popup.vala:106
+msgid "Search history..."
+msgstr "Search history..."
+
+#: src/history-popup.vala:111
+msgid "Clear all history"
+msgstr "Clear all history"
+
+#. Empty state
+#: src/history-popup.vala:132
+msgid "No clipboard history"
+msgstr "No clipboard history"
+
+#: src/history-popup.vala:416
+msgid "Delete this item"
+msgstr "Delete this item"
+
+#: src/preferences.vala:35
 msgid "Clipboard Manager Preferences"
 msgstr "Clipboard Manager Preferences"
 
-#: src/clipman-preferences.c:85
+#: src/preferences.vala:38
 msgid "_Close"
 msgstr "_Close"
 
 #. General section
-#: src/clipman-preferences.c:94
+#: src/preferences.vala:47
 msgid "General"
 msgstr "General"
 
-#: src/clipman-preferences.c:101
+#: src/preferences.vala:54
 msgid "History size:"
 msgstr "History size:"
 
-#: src/clipman-preferences.c:107
+#: src/preferences.vala:59
 msgid "Maximum number of items to keep in history"
 msgstr "Maximum number of items to keep in history"
 
-#: src/clipman-preferences.c:111
+#: src/preferences.vala:63
 msgid "Keep clipboard content when source closes"
 msgstr "Keep clipboard content when source closes"
 
-#: src/clipman-preferences.c:113
+#: src/preferences.vala:64
 msgid "Restore clipboard content when the application that copied it closes"
 msgstr "Restore clipboard content when the application that copied it closes"
 
-#: src/clipman-preferences.c:117
+#: src/preferences.vala:65
 msgid "Confirm before clearing history"
 msgstr "Confirm before clearing history"
 
-#: src/clipman-preferences.c:121
+#: src/preferences.vala:67
 msgid "Automatically paste when selecting from history"
 msgstr "Automatically paste when selecting from history"
 
+#: src/preferences.vala:70 src/preferences.vala:90
+msgid "Not available on Wayland"
+msgstr ""
+
+#. History dialog section
+#: src/preferences.vala:74
+#, fuzzy
+msgid "History Dialog"
+msgstr "History size:"
+
+#: src/preferences.vala:76
+msgid "Open the keyboard shortcut dialog at the mouse pointer"
+msgstr ""
+
+#: src/preferences.vala:77
+msgid "Open the keyboard shortcut dialog next to the panel applet"
+msgstr ""
+
+#: src/preferences.vala:93
+msgid ""
+"To open the history with a key, add this command as a custom shortcut in the "
+"Control Center:"
+msgstr ""
+
+#: src/preferences.vala:106
+msgid "Copy command"
+msgstr ""
+
 #. Clipboard section
-#: src/clipman-preferences.c:125
+#: src/preferences.vala:115
 msgid "Clipboard Sources"
 msgstr "Clipboard Sources"
 
-#: src/clipman-preferences.c:128
+#: src/preferences.vala:116
 msgid "Track primary selection (middle-click paste)"
 msgstr "Track primary selection (middle-click paste)"
 
-#: src/clipman-preferences.c:130
+#: src/preferences.vala:117
 msgid "Also save text selected with the mouse"
 msgstr "Also save text selected with the mouse"
 
-#: src/clipman-preferences.c:134
+#: src/preferences.vala:118
 msgid "Synchronize clipboard and primary selection"
 msgstr "Synchronize clipboard and primary selection"
 
-#: src/clipman-preferences.c:136
+#: src/preferences.vala:119
 msgid "Keep both selections synchronized"
 msgstr "Keep both selections synchronized"
 
 #. Content types section
-#: src/clipman-preferences.c:140
+#: src/preferences.vala:122
 msgid "Content Types"
 msgstr "Content Types"
 
-#: src/clipman-preferences.c:143
+#: src/preferences.vala:123
 msgid "Save images to history"
 msgstr "Save images to history"
 
-#: src/clipman-preferences.c:147
+#: src/preferences.vala:124
 msgid "Save file paths to history"
 msgstr "Save file paths to history"
 
-#: src/clipman-preferences.c:151
+#: src/preferences.vala:125
 msgid "Show image previews in history"
 msgstr "Show image previews in history"
 
-#. Filter section
-#: src/clipman-preferences.c:155
-msgid "Filtering"
-msgstr "Filtering"
+#. Privacy section
+#: src/preferences.vala:128
+msgid "Privacy"
+msgstr ""
 
-#: src/clipman-preferences.c:158
+#: src/preferences.vala:129
+msgid "Save history to disk (encrypted)"
+msgstr ""
+
+#: src/preferences.vala:130
+msgid ""
+"When off, history is kept in memory only and is lost when the panel restarts"
+msgstr ""
+
+#: src/preferences.vala:147
 msgid "Exclude pattern:"
 msgstr "Exclude pattern:"
 
-#: src/clipman-preferences.c:163
+#: src/preferences.vala:149
 msgid "Regular expression"
 msgstr "Regular expression"
 
-#: src/clipman-preferences.c:165
+#: src/preferences.vala:150
 msgid "Text matching this pattern will not be saved (e.g., passwords)"
 msgstr "Text matching this pattern will not be saved (e.g., passwords)"
 
-#: data/mate-clipman.desktop.in:3
-msgid "Clipboard history manager for MATE"
-msgstr "Clipboard history manager for MATE"
+#: src/preferences.vala:163
+msgid "History is encrypted with a key kept in your login keyring."
+msgstr ""
 
-#: data/mate-clipman.desktop.in:9
-msgid "clipboard;paste;copy;history;"
-msgstr "clipboard;paste;copy;history;"
+#: src/preferences.vala:165
+msgid "History is kept in memory only."
+msgstr ""
 
-#: data/mate-clipman-autostart.desktop.in:3
-msgid "Start clipboard manager on login"
-msgstr "Start clipboard manager on login"
+#: src/preferences.vala:167
+msgid "Waiting for the login keyring…"
+msgstr ""
 
-#: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:5
+#: src/preferences.vala:169
+msgid "The login keyring is unavailable, so history is kept in memory only."
+msgstr ""
+
+#: src/preferences.vala:171
+msgid "History will be saved, encrypted, after the panel restarts."
+msgstr ""
+
+#: src/service.vala:132
+msgid ""
+"Clipboard Manager is not installed correctly: its settings schema is missing."
+msgstr ""
+
+#: src/service.vala:332
+msgid "Clear all clipboard history?"
+msgstr "Clear all clipboard history?"
+
+#: src/service.vala:333
+msgid "This action cannot be undone."
+msgstr "This action cannot be undone."
+
+#: src/vault.vala:115
+#, fuzzy
+msgid "MATE Clipboard Manager history key"
+msgstr "MATE Clipboard Manager"
+
+#: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:6
 msgid "Clipman Applet Factory"
 msgstr "Clipman Applet Factory"
 
-#: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:6
+#: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:7
 msgid "Factory for the clipboard manager applet"
 msgstr "Factory for the clipboard manager applet"
 
-#: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:9
+#: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:10
 msgid "Clipboard Manager"
 msgstr "Clipboard Manager"
 
-#: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:10
+#: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:11
 msgid "View and manage clipboard history"
 msgstr "View and manage clipboard history"
+
+#~ msgid "Show History"
+#~ msgstr "Show History"
+
+#~ msgid "Clear History"
+#~ msgstr "Clear History"
+
+#~ msgid "Preferences"
+#~ msgstr "Preferences"
+
+#~ msgid "About"
+#~ msgstr "About"
+
+#~ msgid "Quit"
+#~ msgstr "Quit"
+
+#~ msgid "Start hidden in system tray"
+#~ msgstr "Start hidden in system tray"
+
+#~ msgid "Filtering"
+#~ msgstr "Filtering"
+
+#~ msgid "Clipboard history manager for MATE"
+#~ msgstr "Clipboard history manager for MATE"
+
+#~ msgid "clipboard;paste;copy;history;"
+#~ msgstr "clipboard;paste;copy;history;"
+
+#~ msgid "Start clipboard manager on login"
+#~ msgstr "Start clipboard manager on login"
