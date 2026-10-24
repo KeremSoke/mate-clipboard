@@ -2,9 +2,10 @@
 <schemalist>
   <schema id="org.mate.clipman" path="/org/mate/clipman/">
     <key name="history-size" type="i">
+      <range min="1" max="500"/>
       <default>50</default>
       <summary>Number of items to keep in history</summary>
-      <description>Maximum number of clipboard items to store in history (1-500)</description>
+      <description>Maximum number of clipboard items to store in history (1-500). Older items are deleted.</description>
     </key>
     <key name="use-primary-selection" type="b">
       <default>false</default>
@@ -44,12 +45,26 @@
     <key name="paste-on-select" type="b">
       <default>false</default>
       <summary>Paste on selection</summary>
-      <description>Automatically paste when selecting an item from history</description>
+      <description>Automatically paste when selecting an item from history (X11 only)</description>
     </key>
     <key name="exclude-pattern" type="s">
       <default>""</default>
       <summary>Exclude pattern</summary>
       <description>Regular expression pattern for text to exclude from history</description>
+    </key>
+    <key name="popup-position" type="s">
+      <choices>
+        <choice value="pointer"/>
+        <choice value="applet"/>
+      </choices>
+      <default>"pointer"</default>
+      <summary>Where the keyboard shortcut opens the history</summary>
+      <description>"pointer" opens the history dialog at the mouse pointer, "applet" next to the panel applet. Wayland always uses "applet".</description>
+    </key>
+    <key name="persist-history" type="b">
+      <default>true</default>
+      <summary>Save history to disk</summary>
+      <description>Keep the history in an encrypted database whose key is stored in the login keyring. When false, history is kept in memory only.</description>
     </key>
   </schema>
 </schemalist>
