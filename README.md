@@ -1,153 +1,89 @@
 # 📋 MATE Clipboard Manager
 
-A clipboard history manager inspired by [Diodon](https://launchpad.net/diodon) for the MATE Desktop Environment, written in pure C using GTK+ 3 and GObject.
+A clipboard history applet for the MATE panel, written in Vala. (Unlike 1.x version!) It works on MATE under **both X11** and **Wayland** (Wayfire, or any compositor with the data-control protocol).
 
 ## ✨ Features
 
-- 📜 **Clipboard History**: Stores text, images, and file paths
-- 🗃️ **SQLite Storage**: Persistent history with efficient searching
-- 🔍 **Search**: Quick search through clipboard history
-- 🖱️ **Primary Selection**: Optionally track mouse selection (middle-click paste)
-- 🔄 **Selection Sync**: Keep clipboard and primary selection synchronized
-- 🛡️ **Content Filtering**: Exclude text matching regex patterns (e.g., passwords)
-- 🖼️ **Image Previews**: Show thumbnails in history
-- 🧩 **MATE Panel Applet**: Optional panel integration (in progress)
-- 📥 **System Tray**: Status icon with menu
+- 📜 **Clipboard history**: text, images and copied files
+- 🔍 **Search**: type to filter the history instantly
+- 🧩 **Panel applet**: click it to open the history next to the panel
+- ⌨️ **Keyboard shortcut**: open the history at the mouse pointer (X11) or next to the applet
+- 🔐 **Encrypted history**: stored encrypted with XChaCha20-Poly1305, with the key kept in your login keyring
+- 🖼️ **Image thumbnails**: small previews, stored separately from the full image
+- 🖱️ **Primary selection**: optionally track the mouse selection and keep it in sync
+- 🛡️ **Content filtering**: skip text matching a regular expression, and anything password managers mark as secret
+
+> [!CAUTION]
+> If you used version 1.x, its old **unencrypted** history is still at `~/.local/share/mate-clipman/history.db`. This version does not read it; delete the file once you no longer need it.
 
 ## 🛠️ Building
 
 ### 📦 Dependencies
 
-Install the required development packages:
-
 ```bash
-# Debian
-sudo apt install meson ninja-build gcc gettext\
-    libglib2.0-dev libgtk-3-dev libx11-dev libsqlite3-dev \
-    libmate-panel-applet-dev
+# Debian / Ubuntu
+sudo apt install meson ninja-build valac gettext \
+    libgtk-3-dev libmate-panel-applet-dev libsqlite3-dev libsodium-dev libsecret-1-dev \
+    libx11-dev libxtst-dev \
+    libwayland-dev wayland-protocols libgtk-layer-shell-dev
+
+# Fedora
+sudo dnf install meson ninja-build vala gettext \
+    gtk3-devel mate-panel-devel sqlite-devel libsodium-devel libsecret-devel \
+    libX11-devel libXtst-devel \
+    wayland-devel wayland-protocols-devel gtk-layer-shell-devel
 ```
 
-### 🔨 Compile
+The X11 and Wayland parts are optional: build without one with `-Dx11=disabled` or `-Dwayland=disabled`. Wayland support needs wayland-protocols 1.39 or newer.
+
+### 🔨 Compile and install
 
 ```bash
-# Configure
-meson setup builddir
-
-# Build
+meson setup builddir --prefix=/usr
 meson compile -C builddir
-```
-
-## 🚀 Installation
-
-### 🌍 System-wide
-
-Install the GSettings schema system-wide so the app works without environment variables:
-
-```bash
-# Install 
+meson test -C builddir
 sudo meson install -C builddir
-
-# Copy schema to system location
-sudo cp data/org.mate.clipman.gschema.xml /usr/share/glib-2.0/schemas/
-
-# Recompile all schemas
-sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 ```
 
-Now you can run the app directly:
-
-```bash
-mate-clipman
-```
-
-### 🏠 Local 
-
-If you don't have root access:
-
-```bash
-# Compile the local schema
-glib-compile-schemas data/
-
-# Make wrapper script executable
-chmod +x mate-clipman.sh
-
-# Run using the wrapper
-./mate-clipman.sh
-```
-
-Or create a wrapper script sets the schema path automatically:
-
-```bash
-export GSETTINGS_SCHEMA_DIR=/path/to/mate-clipboard/data
-exec /path/to/mate-clipboard/builddir/mate-clipman "$@"
-```
+Installing also compiles the GSettings schemas. Then right-click the panel, choose **Add to Panel…** and pick **Clipboard Manager**. The applet is loaded inside the panel process, as Wayland requires.
 
 ## 💡 Usage
 
-### ▶️ Running
+- **Click** the applet to open the history; click again or press <kbd>Esc</kbd> to close it.
+- **Type** to search. <kbd>Enter</kbd> picks the first match.
+- **Pick** an item to put it back on the clipboard.
+- **Right-click** the applet for Preferences, Clear History and About.
 
-```bash
-# Normal start (shows history popup)
-mate-clipman
+The search box sits at the edge nearest the panel: at the top for a top panel and when opened at the pointer, at the bottom for a bottom panel.
 
-# Start hidden in system tray (for autostart)
-mate-clipman --hidden
-```
+### ⌨️ Keyboard shortcut
 
-### ⌨️ Keyboard Shortcut
-
-To open the clipboard history with a keyboard shortcut (e.g., SUPER+V):
+The applet offers a D-Bus method that opens the history. To bind it to a key (e.g. <kbd>Super</kbd>+<kbd>V</kbd>):
 
 1. Open **MATE Control Center** → **Hardware** → **Keyboard Shortcuts**
-2. Click **Add** to create a new custom shortcut
-3. Set the name to "Clipboard Manager"
-4. Set the command to:
-   - If installed system-wide: `mate-clipman`
-5. Then click on the shortcut and press your desired key combination (e.g., SUPER+V)
+2. Click **Add**, name it "Clipboard History" and use this command:
 
-When the app is already running, triggering the shortcut will show the history popup.
+   ```bash
+   gdbus call --session --dest org.mate.Clipman --object-path /org/mate/Clipman --method org.mate.Clipman.ShowHistory
+   ```
 
-### ⚡ Autostart
+3. Click the new shortcut and press your key combination.
 
-The application can autostart with your session. After installation, enable the autostart file or add it to your startup applications.
+On Wayfire, add the same command as a binding in `wayfire.ini` instead. The command is also in the Preferences dialog, with a copy button.
 
-1. Open **MATE Control Center** → **Personal** → **Startup Applications**
-2. Click **Add** to create a new custom shortcut
-3. Set the name to "MATE Clipboard Manager"
-4. Set the command to:
-   - If installed system-wide: `mate-clipman --hidden`
+Under **History Dialog** in Preferences you choose whether the shortcut opens the history at the mouse pointer or next to the applet. On Wayland it always opens next to the applet, because Wayland programs cannot see where the pointer is.
 
-## ⚙️ Configuration
+## ⚡ Performance
 
-Settings are stored in GSettings under the `org.mate.clipman` schema.
-
-### Options
-
-- 📏 **History size**: Number of items to keep (1-500)
-- 🖱️ **Track primary selection**: Also save mouse selections
-- 🔄 **Synchronize selections**: Keep clipboard and primary in sync
-- 🖼️ **Save images**: Include images in history
-- 📂 **Save files**: Include copied file paths
-- 💾 **Keep content**: Restore clipboard when source app closes
-- 👁️ **Show preview**: Display image thumbnails
-- ⚠️ **Confirm clear**: Ask before clearing history
-- 📋 **Paste on select**: Auto-paste when choosing from history
-- 🚫 **Exclude pattern**: Regex for text to exclude
-
-## 🆚 Differences from Diodon
-
-This project was inspired by Diodon but has several differences:
-
-1. **Pure C/GObject**: No Vala, direct GTK+/GLib usage
-2. **SQLite Storage**: Instead of Zeitgeist, uses local SQLite database
-3. **No Plugin System**: Built-in features only, simpler architecture
-4. **MATE Integration**: Native panel applet support
-5. **Different UI**: Popup window with search instead of menu-only
-6. **Focused Features**: Essential clipboard management without complexity
+- Older items are deleted as new ones arrive, and the database file is compacted.
+- Copied images are decoded and scaled on a worker thread. 
+- Items over 8 MiB of text or 32 MiB of image data are skipped.
 
 ## ⚖️ License
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+`protocols/wlr-data-control-unstable-v1.xml` comes from wlr-protocols and keeps its own permissive license, shown at the top of that file.
 
 ## 👏 Credits
 
