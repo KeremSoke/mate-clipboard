@@ -1,6 +1,7 @@
 # xgettext: language=Desktop
 [Applet Factory]
 Id=ClipmanAppletFactory
+InProcess=true
 Location=@LIBDIR@/mate-panel/libmate-clipman-applet.so
 Name=Clipman Applet Factory
 Description=Factory for the clipboard manager applet

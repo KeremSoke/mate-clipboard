@@ -1,0 +1,2 @@
+option('x11', type: 'feature', value: 'auto', description: 'Support MATE on X11')
+option('wayland', type: 'feature', value: 'auto', description: 'Support MATE on Wayland (data-control protocols)')

@@ -1,95 +1,92 @@
-project('mate-clipman', 'c',
-  version: '1.0.0',
+project('mate-clipman', ['c', 'vala'],
+  version: '2.0.0',
   license: 'GPL-3.0-or-later',
-  meson_version: '>= 0.50.0',
-  default_options: [
-    'warning_level=2',
-    'c_std=gnu11',
-  ]
+  meson_version: '>= 0.59.0',
 )
 
 i18n = import('i18n')
+gnome = import('gnome')
+
+valac = meson.get_compiler('vala')
+vapi_dir = meson.current_source_dir() / 'src' / 'vapi'
+add_project_arguments('--vapidir', vapi_dir, language: 'vala')
 
 # Dependencies
-glib_dep = dependency('glib-2.0', version: '>= 2.50')
-gobject_dep = dependency('gobject-2.0', version: '>= 2.50')
-gio_dep = dependency('gio-2.0', version: '>= 2.50')
-gtk_dep = dependency('gtk+-3.0', version: '>= 3.22')
-gdk_x11_dep = dependency('gdk-x11-3.0', version: '>= 3.22')
-x11_dep = dependency('x11', version: '>= 1.6')
-sqlite_dep = dependency('sqlite3', version: '>= 3.20')
+deps = [
+  dependency('glib-2.0', version: '>= 2.66'),
+  dependency('gobject-2.0', version: '>= 2.66'),
+  dependency('gio-2.0', version: '>= 2.66'),
+  dependency('gio-unix-2.0', version: '>= 2.66'),
+  dependency('gtk+-3.0', version: '>= 3.22'),
+  dependency('gdk-pixbuf-2.0'),
+  dependency('libmatepanelapplet-4.0', version: '>= 1.20'),
+  dependency('sqlite3', version: '>= 3.30'),
+  dependency('libsodium', version: '>= 1.0.18'),
+  dependency('libsecret-1', version: '>= 0.20'),
+  valac.find_library('posix'),
+]
 
-# Optional MATE panel applet
-mate_panel_dep = dependency('libmatepanelapplet-4.0', required: false)
+vala_args = []
+
+# X11: GtkClipboard, XQueryPointer and XTest for paste-on-select
+x11_deps = [
+  dependency('gdk-x11-3.0', required: get_option('x11')),
+  dependency('x11', required: get_option('x11')),
+  dependency('xtst', required: get_option('x11')),
+]
+have_x11 = true
+foreach dep : x11_deps
+  have_x11 = have_x11 and dep.found()
+endforeach
+if have_x11
+  deps += x11_deps
+  vala_args += ['-D', 'HAVE_X11']
+endif
+
+# Wayland: data-control protocols and gtk-layer-shell for the popup
+wayland_deps = [
+  dependency('gdk-wayland-3.0', required: get_option('wayland')),
+  dependency('wayland-client', required: get_option('wayland')),
+  dependency('gtk-layer-shell-0', version: '>= 0.6', required: get_option('wayland')),
+]
+# ext-data-control-v1 first shipped in wayland-protocols 1.39
+wayland_protocols = dependency('wayland-protocols', version: '>= 1.39', required: get_option('wayland'))
+wayland_scanner = find_program('wayland-scanner', required: get_option('wayland'))
+have_wayland = wayland_scanner.found() and wayland_protocols.found()
+foreach dep : wayland_deps
+  have_wayland = have_wayland and dep.found()
+endforeach
+if have_wayland
+  deps += wayland_deps
+  vala_args += ['-D', 'HAVE_WAYLAND']
+endif
+
+if not have_x11 and not have_wayland
+  error('Neither X11 nor Wayland support can be built')
+endif
 
 # Configuration
 conf = configuration_data()
 conf.set_quoted('PACKAGE_NAME', meson.project_name())
 conf.set_quoted('PACKAGE_VERSION', meson.project_version())
-conf.set_quoted('PACKAGE_DATADIR', join_paths(get_option('prefix'), get_option('datadir'), meson.project_name()))
 conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
-conf.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
-conf.set('HAVE_MATE_PANEL', mate_panel_dep.found())
+conf.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
+conf.set_quoted('SCHEMA_DIR', get_option('prefix') / get_option('datadir') / 'glib-2.0' / 'schemas')
 
-config_h = configure_file(
+configure_file(
   output: 'config.h',
   configuration: conf
 )
 
-# Include directories
-inc = include_directories('.')
+config_inc = include_directories('.')
 
-# Source files
-clipman_sources = [
-  'src/main.c',
-  'src/clipman-app.c',
-  'src/clipman-item.c',
-  'src/clipman-manager.c',
-  'src/clipman-storage.c',
-  'src/clipman-history.c',
-  'src/clipman-preferences.c',
-]
+# Vala's _() expands to glib/gi18n-lib.h, which needs GETTEXT_PACKAGE
+# defined before anything else is included.
+add_project_arguments('-include', 'config.h', language: 'c')
 
-clipman_deps = [
-  glib_dep,
-  gobject_dep,
-  gio_dep,
-  gtk_dep,
-  gdk_x11_dep,
-  x11_dep,
-  sqlite_dep,
-]
-
-# Main executable
-executable('mate-clipman',
-  clipman_sources,
-  dependencies: clipman_deps,
-  include_directories: inc,
-  install: true
-)
-
-# Panel applet (optional)
-if mate_panel_dep.found()
-  applet_sources = [
-    'src/clipman-applet.c',
-    'src/clipman-item.c',
-    'src/clipman-manager.c',
-    'src/clipman-storage.c',
-    'src/clipman-history.c',
-    'src/clipman-preferences.c',
-  ]
-
-  shared_module('mate-clipman-applet',
-    applet_sources,
-    dependencies: [clipman_deps, mate_panel_dep],
-    include_directories: inc,
-    install: true,
-    install_dir: join_paths(get_option('libdir'), 'mate-panel')
-  )
-endif
-
-# Data files
+subdir('src')
+subdir('tests')
 subdir('data')
-
-# Translations
 subdir('po')
+
+gnome.post_install(glib_compile_schemas: true)
