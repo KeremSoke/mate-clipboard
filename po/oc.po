@@ -22,14 +22,14 @@ msgstr ""
 "Project-Id-Version: mate-clipman\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 01:10-0700\n"
-"PO-Revision-Date: 2025-11-21 15:50+0100\n"
+"PO-Revision-Date: 2026-10-25 15:43+0100\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.10\n"
 
 #: src/applet.vala:53 src/history-popup.vala:70
 msgid "Clipboard History"
@@ -128,30 +128,33 @@ msgstr "Pegar automaticament en seleccionant a partir de l’istoric"
 
 #: src/preferences.vala:70 src/preferences.vala:90
 msgid "Not available on Wayland"
-msgstr ""
+msgstr "Non disponible sus Wayland"
 
 #. History dialog section
 #: src/preferences.vala:74
 msgid "History Dialog"
-msgstr ""
+msgstr "Bóstia de dialòg istoric"
 
 #: src/preferences.vala:76
 msgid "Open the keyboard shortcut dialog at the mouse pointer"
-msgstr ""
+msgstr "Dobrir la bóstia de dialòg dels acorchis amb lo ponchador de la mirga"
 
 #: src/preferences.vala:77
 msgid "Open the keyboard shortcut dialog next to the panel applet"
 msgstr ""
+"Dobrir la bóstia de dialòg dels acorchis a costat del panèl de l’ajuston"
 
 #: src/preferences.vala:93
 msgid ""
 "To open the history with a key, add this command as a custom shortcut in the "
 "Control Center:"
 msgstr ""
+"Per dobrir l’istoric amb una tòca, apondètz aquesta comanda coma acorchi "
+"personalizat dins lo Centre de contraròtle :"
 
 #: src/preferences.vala:106
 msgid "Copy command"
-msgstr ""
+msgstr "Copiar la comanda"
 
 #. Clipboard section
 #: src/preferences.vala:115
@@ -194,16 +197,18 @@ msgstr "Afichar l’apercebut dels imatges dins l’istoric"
 #. Privacy section
 #: src/preferences.vala:128
 msgid "Privacy"
-msgstr ""
+msgstr "Vida privada"
 
 #: src/preferences.vala:129
 msgid "Save history to disk (encrypted)"
-msgstr ""
+msgstr "Salvar l’istoric sul disc (chifrat)"
 
 #: src/preferences.vala:130
 msgid ""
 "When off, history is kept in memory only and is lost when the panel restarts"
 msgstr ""
+"Quand es desactivat, l’istoric es gardat solament en memòria e es perdut "
+"quand lo panèl se relança"
 
 #: src/preferences.vala:147
 msgid "Exclude pattern:"
@@ -222,27 +227,33 @@ msgstr ""
 #: src/preferences.vala:163
 msgid "History is encrypted with a key kept in your login keyring."
 msgstr ""
+"L’istoric es chifrat quand una clau es gardada dins vòstre trocèls "
+"d’identificants."
 
 #: src/preferences.vala:165
 msgid "History is kept in memory only."
-msgstr ""
+msgstr "L’istoric es solament gardat en memòria."
 
 #: src/preferences.vala:167
 msgid "Waiting for the login keyring…"
-msgstr ""
+msgstr "En espèra del trocèl d’identificant…"
 
 #: src/preferences.vala:169
 msgid "The login keyring is unavailable, so history is kept in memory only."
 msgstr ""
+"Lo trocèl d’identificants es indisponible, l’istoric es alara sonque gardat "
+"en memòria."
 
 #: src/preferences.vala:171
 msgid "History will be saved, encrypted, after the panel restarts."
-msgstr ""
+msgstr "L’istoric serà salvat, chifrat aprèp la reaviada del panèl."
 
 #: src/service.vala:132
 msgid ""
 "Clipboard Manager is not installed correctly: its settings schema is missing."
 msgstr ""
+"Lo gestionari de quichapapièrs es pas installat corrèctament : son esquèma "
+"de paramètre es absent."
 
 #: src/service.vala:332
 msgid "Clear all clipboard history?"
@@ -254,7 +265,7 @@ msgstr "Impossible d'anullar aquesta accion."
 
 #: src/vault.vala:115
 msgid "MATE Clipboard Manager history key"
-msgstr ""
+msgstr "Clau d’istoric del gestionari de quichapapièrs MATE"
 
 #: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:6
 msgid "Clipman Applet Factory"
