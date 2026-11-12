@@ -125,30 +125,30 @@ msgstr "הדבקה אוטומטית בבחירה מההיסטוריה"
 
 #: src/preferences.vala:70 src/preferences.vala:90
 msgid "Not available on Wayland"
-msgstr ""
+msgstr "לא זמין ב־Wayland"
 
 #. History dialog section
 #: src/preferences.vala:74
 msgid "History Dialog"
-msgstr ""
+msgstr "חלון ההיסטוריה"
 
 #: src/preferences.vala:76
 msgid "Open the keyboard shortcut dialog at the mouse pointer"
-msgstr ""
+msgstr "פתיחת חלון ההיסטוריה ליד סמן העכבר באמצעות קיצור מקשים"
 
 #: src/preferences.vala:77
 msgid "Open the keyboard shortcut dialog next to the panel applet"
-msgstr ""
+msgstr "פתיחת חלון ההיסטוריה ליד היישומון בלוח באמצעות קיצור מקשים"
 
 #: src/preferences.vala:93
 msgid ""
 "To open the history with a key, add this command as a custom shortcut in the "
 "Control Center:"
-msgstr ""
+msgstr "כדי לפתוח את ההיסטוריה באמצעות מקש, הוסיפו את הפקודה הזו כקיצור דרך מותאם אישית במרכז הבקרה:"
 
 #: src/preferences.vala:106
 msgid "Copy command"
-msgstr ""
+msgstr "העתקת הפקודה"
 
 #. Clipboard section
 #: src/preferences.vala:115
@@ -191,16 +191,16 @@ msgstr "הצגת תצוגות מקדימות של תמונות בהיסטורי�
 #. Privacy section
 #: src/preferences.vala:128
 msgid "Privacy"
-msgstr ""
+msgstr "פרטיות"
 
 #: src/preferences.vala:129
 msgid "Save history to disk (encrypted)"
-msgstr ""
+msgstr "שמירת ההיסטוריה בכונן כשהיא מוצפנת"
 
 #: src/preferences.vala:130
 msgid ""
 "When off, history is kept in memory only and is lost when the panel restarts"
-msgstr ""
+msgstr "כשהאפשרות כבויה, ההיסטוריה נשמרת בזיכרון בלבד ונמחקת כשהלוח מופעל מחדש."
 
 #: src/preferences.vala:147
 msgid "Exclude pattern:"
@@ -216,28 +216,28 @@ msgstr "טקסט שתואם לתבנית זו לא יישמר (לדוגמה, ס�
 
 #: src/preferences.vala:163
 msgid "History is encrypted with a key kept in your login keyring."
-msgstr ""
+msgstr "ההיסטוריה מוצפנת באמצעות מפתח שנשמר בצרור המפתחות של הכניסה שלך."
 
 #: src/preferences.vala:165
 msgid "History is kept in memory only."
-msgstr ""
+msgstr "ההיסטוריה נשמרת בזיכרון בלבד."
 
 #: src/preferences.vala:167
 msgid "Waiting for the login keyring…"
-msgstr ""
+msgstr "ממתין לצרור המפתחות של הכניסה…"
 
 #: src/preferences.vala:169
 msgid "The login keyring is unavailable, so history is kept in memory only."
-msgstr ""
+msgstr "צרור המפתחות של הכניסה אינו זמין, ולכן ההיסטוריה נשמרת בזיכרון בלבד."
 
 #: src/preferences.vala:171
 msgid "History will be saved, encrypted, after the panel restarts."
-msgstr ""
+msgstr "לאחר הפעלה מחדש של הלוח, ההיסטוריה תישמר כשהיא מוצפנת."
 
 #: src/service.vala:132
 msgid ""
 "Clipboard Manager is not installed correctly: its settings schema is missing."
-msgstr ""
+msgstr "מנהל הלוח לא הותקן כראוי: סכמת ההגדרות שלו חסרה."
 
 #: src/service.vala:332
 msgid "Clear all clipboard history?"
@@ -249,7 +249,7 @@ msgstr "לא ניתן לבטל פעולה זו."
 
 #: src/vault.vala:115
 msgid "MATE Clipboard Manager history key"
-msgstr ""
+msgstr "מפתח ההיסטוריה של מנהל הלוח של MATE"
 
 #: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:6
 msgid "Clipman Applet Factory"
