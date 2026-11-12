@@ -128,31 +128,30 @@ msgstr "Geçmişten seçerken özdevimli yapıştır"
 
 #: src/preferences.vala:70 src/preferences.vala:90
 msgid "Not available on Wayland"
-msgstr ""
+msgstr "Wayland'de kullanılamaz"
 
 #. History dialog section
 #: src/preferences.vala:74
-#, fuzzy
 msgid "History Dialog"
-msgstr "Geçmiş boyutu:"
+msgstr "Geçmiş penceresi"
 
 #: src/preferences.vala:76
 msgid "Open the keyboard shortcut dialog at the mouse pointer"
-msgstr ""
+msgstr "Kısayolla açılan pencereyi imlecin yanında aç"
 
 #: src/preferences.vala:77
 msgid "Open the keyboard shortcut dialog next to the panel applet"
-msgstr ""
+msgstr "Kısayolla açılan pencereyi panel uygulamacığının yanında aç"
 
 #: src/preferences.vala:93
 msgid ""
 "To open the history with a key, add this command as a custom shortcut in the "
 "Control Center:"
-msgstr ""
+msgstr "Geçmişi bir tuşla açmak için Denetim Merkezi'nde özel kısayol olarak şu komutu ekleyin:"
 
 #: src/preferences.vala:106
 msgid "Copy command"
-msgstr ""
+msgstr "Komutu kopyala"
 
 #. Clipboard section
 #: src/preferences.vala:115
@@ -195,16 +194,16 @@ msgstr "Geçmişte görüntü önizlemelerini göster"
 #. Privacy section
 #: src/preferences.vala:128
 msgid "Privacy"
-msgstr ""
+msgstr "Gizlilik"
 
 #: src/preferences.vala:129
 msgid "Save history to disk (encrypted)"
-msgstr ""
+msgstr "Geçmişi diske şifreleyerek kaydet"
 
 #: src/preferences.vala:130
 msgid ""
 "When off, history is kept in memory only and is lost when the panel restarts"
-msgstr ""
+msgstr "Bu seçenek kapalıyken geçmiş yalnızca bellekte tutulur ve panel yeniden başlatıldığında silinir"
 
 #: src/preferences.vala:147
 msgid "Exclude pattern:"
@@ -220,28 +219,28 @@ msgstr "Bu desenle eşleşen metin kaydedilmez (örn. parolalar)"
 
 #: src/preferences.vala:163
 msgid "History is encrypted with a key kept in your login keyring."
-msgstr ""
+msgstr "Geçmiş, oturum anahtarlığınızda saklanan bir anahtarla şifrelenir."
 
 #: src/preferences.vala:165
 msgid "History is kept in memory only."
-msgstr ""
+msgstr "Geçmiş yalnızca bellekte tutulur."
 
 #: src/preferences.vala:167
 msgid "Waiting for the login keyring…"
-msgstr ""
+msgstr "Oturum anahtarlığı bekleniyor…"
 
 #: src/preferences.vala:169
 msgid "The login keyring is unavailable, so history is kept in memory only."
-msgstr ""
+msgstr "Oturum anahtarlığı kullanılamadığı için geçmiş yalnızca bellekte tutuluyor."
 
 #: src/preferences.vala:171
 msgid "History will be saved, encrypted, after the panel restarts."
-msgstr ""
+msgstr "Panel yeniden başlatıldığında geçmiş şifrelenerek kaydedilecek."
 
 #: src/service.vala:132
 msgid ""
 "Clipboard Manager is not installed correctly: its settings schema is missing."
-msgstr ""
+msgstr "Pano Yöneticisi düzgün yüklenmemiş: ayar şeması bulunamıyor."
 
 #: src/service.vala:332
 msgid "Clear all clipboard history?"
@@ -252,9 +251,8 @@ msgid "This action cannot be undone."
 msgstr "Bu işlem geri alınamaz."
 
 #: src/vault.vala:115
-#, fuzzy
 msgid "MATE Clipboard Manager history key"
-msgstr "MATE Pano Yöneticisi"
+msgstr "MATE Pano Yöneticisi geçmiş anahtarı"
 
 #: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:6
 msgid "Clipman Applet Factory"
