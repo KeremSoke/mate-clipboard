@@ -125,30 +125,30 @@ msgstr "چسباندن خودکار هنگام انتخاب از تاریخچه"
 
 #: src/preferences.vala:70 src/preferences.vala:90
 msgid "Not available on Wayland"
-msgstr ""
+msgstr "در Wayland در دسترس نیست"
 
 #. History dialog section
 #: src/preferences.vala:74
 msgid "History Dialog"
-msgstr ""
+msgstr "پنجرهٔ تاریخچه"
 
 #: src/preferences.vala:76
 msgid "Open the keyboard shortcut dialog at the mouse pointer"
-msgstr ""
+msgstr "باز شدن پنجرهٔ تاریخچه کنار نشانگر ماوس با میان‌بر صفحه‌کلید"
 
 #: src/preferences.vala:77
 msgid "Open the keyboard shortcut dialog next to the panel applet"
-msgstr ""
+msgstr "باز شدن پنجرهٔ تاریخچه کنار اپلت پنل با میان‌بر صفحه‌کلید"
 
 #: src/preferences.vala:93
 msgid ""
 "To open the history with a key, add this command as a custom shortcut in the "
 "Control Center:"
-msgstr ""
+msgstr "برای باز کردن تاریخچه با یک کلید، این فرمان را به‌عنوان میان‌بر دلخواه در مرکز کنترل اضافه کنید:"
 
 #: src/preferences.vala:106
 msgid "Copy command"
-msgstr ""
+msgstr "رونوشت‌برداری از فرمان"
 
 #. Clipboard section
 #: src/preferences.vala:115
@@ -191,16 +191,16 @@ msgstr "نمایش پیش‌نمایش تصاویر در تاریخچه"
 #. Privacy section
 #: src/preferences.vala:128
 msgid "Privacy"
-msgstr ""
+msgstr "حریم خصوصی"
 
 #: src/preferences.vala:129
 msgid "Save history to disk (encrypted)"
-msgstr ""
+msgstr "ذخیرهٔ رمزگذاری‌شدهٔ تاریخچه روی دیسک"
 
 #: src/preferences.vala:130
 msgid ""
 "When off, history is kept in memory only and is lost when the panel restarts"
-msgstr ""
+msgstr "اگر این گزینه خاموش باشد، تاریخچه فقط در حافظه می‌ماند و با راه‌اندازی دوبارهٔ پنل از بین می‌رود."
 
 #: src/preferences.vala:147
 msgid "Exclude pattern:"
@@ -216,28 +216,28 @@ msgstr "متنی که با این الگو مطابقت داشته باشد ذخ
 
 #: src/preferences.vala:163
 msgid "History is encrypted with a key kept in your login keyring."
-msgstr ""
+msgstr "تاریخچه با کلیدی رمزگذاری می‌شود که در جاکلیدی ورود شما نگه‌داری می‌شود."
 
 #: src/preferences.vala:165
 msgid "History is kept in memory only."
-msgstr ""
+msgstr "تاریخچه فقط در حافظه نگه‌داری می‌شود."
 
 #: src/preferences.vala:167
 msgid "Waiting for the login keyring…"
-msgstr ""
+msgstr "در انتظار جاکلیدی ورود…"
 
 #: src/preferences.vala:169
 msgid "The login keyring is unavailable, so history is kept in memory only."
-msgstr ""
+msgstr "جاکلیدی ورود در دسترس نیست؛ تاریخچه فقط در حافظه نگه‌داری می‌شود."
 
 #: src/preferences.vala:171
 msgid "History will be saved, encrypted, after the panel restarts."
-msgstr ""
+msgstr "پس از راه‌اندازی دوبارهٔ پنل، تاریخچه به‌صورت رمزگذاری‌شده ذخیره می‌شود."
 
 #: src/service.vala:132
 msgid ""
 "Clipboard Manager is not installed correctly: its settings schema is missing."
-msgstr ""
+msgstr "مدیر کلیپ‌بورد درست نصب نشده است: شِمای تنظیمات آن پیدا نمی‌شود."
 
 #: src/service.vala:332
 msgid "Clear all clipboard history?"
@@ -249,7 +249,7 @@ msgstr "این کار قابل بازگشت نیست."
 
 #: src/vault.vala:115
 msgid "MATE Clipboard Manager history key"
-msgstr ""
+msgstr "کلید تاریخچهٔ مدیر کلیپ‌بورد MATE"
 
 #: data/org.mate.panel.ClipmanApplet.mate-panel-applet.desktop.in:6
 msgid "Clipman Applet Factory"
